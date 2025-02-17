@@ -41,4 +41,9 @@ public class PatrimonioController {
         patrimonioService.excluirPatrimonio(id);
         return ResponseEntity.status(204).build();
     }
+
+    @GetMapping("/{id}")
+    public Patrimonio getPatrimonioById(@PathVariable int id){
+        return patrimonioService.getPatrimonioById(id);
+    }
 }

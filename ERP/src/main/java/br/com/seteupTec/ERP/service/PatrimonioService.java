@@ -2,8 +2,11 @@ package br.com.seteupTec.ERP.service;
 
 import br.com.seteupTec.ERP.entities.Patrimonio;
 import br.com.seteupTec.ERP.repository.IPatrimonio;
+import br.com.seteupTec.ERP.repository.PatrimonioRepository;
 import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +14,9 @@ import java.util.Optional;
 
 @Service
 public class PatrimonioService {
+
+    @Autowired
+    private PatrimonioRepository patrimonioRepository;
 
     private IPatrimonio repository;
     private static final Logger logger = (Logger) LoggerFactory.getLogger(PatrimonioService.class);
@@ -44,5 +50,9 @@ public class PatrimonioService {
             logger.warn("Patromonio com ID {} não encontrado.", id);
             return false;
         }
+    }
+
+    public Patrimonio getPatrimonioById(int id) {
+        return patrimonioRepository.findById(id).orElse(null);
     }
 }
