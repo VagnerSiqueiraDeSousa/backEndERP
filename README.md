@@ -2,5 +2,5 @@
 
 Projeto para gerenciamento de estoque de logicas
 
-Esse Software tem objivo de facilitar e simplificar um gerenciamento de estoque.
+Esse Software tem objetivo de facilitar e simplificar um gerenciamento de estoque.
 
